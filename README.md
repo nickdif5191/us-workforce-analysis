@@ -8,4 +8,4 @@ Rather than manually selecting relevant occupation titles, this model enables im
 
 While there are many potential use cases, one that sticks out is for company HR/Recruiting departments. Inputting a text corpus that describes the positions, requirements, and characteristics of ideal candidates would enable analysis of trends in labor pools they are looking to pull from. Even more simplistically, departments could simply paste in the whole of text from their company's website or Wiki page, assuming this text is representative of company operations and job functions. 
 
-IMPORTANT FUNCTIONALITY NOTE: The Word2Vec model used in this model is too large to be uploaded to GitHub. Users can download the model (~3.6 GB) and move to 'Scripts' folder to be able to properly run the model.
+IMPORTANT FUNCTIONALITY NOTE: The Word2Vec model used in this model is too large to be uploaded to GitHub. Users can download the model at (https://www.kaggle.com/datasets/leadbest/googlenewsvectorsnegative300) (~3.6 GB) and move to 'Scripts' folder to be able to properly run the model.
