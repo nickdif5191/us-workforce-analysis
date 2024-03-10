@@ -37,7 +37,7 @@ class Model:
 
     def run(self):
         
-        data_processor = DataProcessor(input_loc="Data",
+        data_processor = DataProcessor(input_loc="../Data",
                             input_filename_format="state_M{year}_dl.csv",
                             relevant_years=[2001,2022], 
                             output_loc="Outputs")

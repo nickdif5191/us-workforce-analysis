@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 class DataProcessor:
     """
@@ -31,17 +32,17 @@ class DataProcessor:
         self.input_filename_format = input_filename_format
         self.relevant_years = relevant_years
         self.output_loc = output_loc
-        self.data_all_years = self.read_and_process_files(folder_loc=input_loc,
+        self.data_all_years = self.read_and_process_files(inputs_loc=input_loc,
                                                           filename_format=input_filename_format,
                                                           years=relevant_years,
                                                           output_loc=output_loc)
 
-    def read_and_process_files(self, folder_loc:str, filename_format:str, years:list, output_loc:str):
+    def read_and_process_files(self, inputs_loc:str, filename_format:str, years:list, output_loc:str):
         """
         Reads in datafiles from folder_loc, processes, and concatenates them
             
         Parameters: 
-            folder_loc (str): filepath for folder where data is located
+            inputs_loc (str): filepath for folder where data is located
             filename_format (str): format of the filenames located in folder_loc
             years (list): two-item list representing range of years we want to analyze
             output_loc (str): location to write data_all_years to
@@ -51,10 +52,14 @@ class DataProcessor:
         """
         # empty DF - DFs from each year will be concatenated here
         data_all_years = pd.DataFrame()
+
+        # Convert inputs_loc to absolute path
+        absolute_inputs_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), inputs_loc))
+
         for i in range(years[0], years[1]+1):
             # read in file
             filename = filename_format.format(year=i)
-            df = pd.read_csv(f"{folder_loc}/{filename}")
+            df = pd.read_csv(f"{absolute_inputs_loc}/{filename}")
             # process file, address column names that change between years
             # changing col names to most recent version to align w/ most recent data
             df.columns = df.columns.str.upper()
