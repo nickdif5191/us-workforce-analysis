@@ -3,6 +3,7 @@ import numpy as np
 from gensim.models import KeyedVectors
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords   
+import os
 
 class JobCodeIdentifier:
     """
@@ -61,6 +62,7 @@ class JobCodeIdentifier:
         Returns:
             relevant_titles (list): list of occupation titles relevant to the analysis
         """
+
         # load Word2Vec model
         model = KeyedVectors.load_word2vec_format(model_loc, binary=True)
 

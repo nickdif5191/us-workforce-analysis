@@ -50,9 +50,6 @@ class DataProcessor:
         Returns:
             data_all_years (pd.DataFrame): DF including data from all years specified in years parameter
         """
-        # Convert input and output locations to absolute paths
-        absolute_inputs_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), inputs_loc))
-        absolute_outputs_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), outputs_loc))
 
         # empty DF - DFs from each year will be concatenated here
         data_all_years = pd.DataFrame()
@@ -60,7 +57,7 @@ class DataProcessor:
         for i in range(years[0], years[1]+1):
             # read in file
             filename = filename_format.format(year=i)
-            df = pd.read_csv(f"{absolute_inputs_loc}/{filename}")
+            df = pd.read_csv(f"{inputs_loc}/{filename}")
             # process file, address column names that change between years
             # changing col names to most recent version to align w/ most recent data
             df.columns = df.columns.str.upper()
@@ -77,6 +74,6 @@ class DataProcessor:
             # concat this iteration's DF to data_all_years
             data_all_years = pd.concat([data_all_years, df])
         
-        data_all_years.to_csv(f"{absolute_outputs_loc}/data_all_years.csv", index=False)
+        data_all_years.to_csv(f"{outputs_loc}/data_all_years.csv", index=False)
         
         return data_all_years

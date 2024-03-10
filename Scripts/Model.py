@@ -37,14 +37,14 @@ class Model:
 
     def run(self):
         
-        data_processor = DataProcessor(input_loc="../Data",
+        data_processor = DataProcessor(input_loc=os.path.abspath(os.path.join(os.path.dirname(__file__), "../Data")),
                             input_filename_format="state_M{year}_dl.csv",
                             relevant_years=[2001,2022], 
-                            output_loc="../Outputs")
+                            output_loc=os.path.abspath(os.path.join(os.path.dirname(__file__), "../Outputs")))
         
         job_code_identifier = JobCodeIdentifier(data_all_years=data_processor.data_all_years, 
                         job_code_text_corpus=self.job_code_text_corpus,
-                        model_loc=f"{os.getcwd()}/Scripts/GoogleNews-vectors-negative300.bin",
+                        model_loc=os.path.abspath(os.path.join(os.path.dirname(__file__), "../Scripts/GoogleNews-vectors-negative300.bin")),
                         relevance_threshold=self.relevance_threshold)
         
         data_filterer = DataFilterer(relevant_states=self.relevant_states)
