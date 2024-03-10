@@ -15,7 +15,8 @@ class Model:
         
     Methods:
         __init__: Initializes instance of DataModel class
-        run_data_model: performs reading, processing, filtering processes, returning data we will analyze
+        get_output_loc: returns output location of DataProcessor object
+        run_model: performs reading, processing, filtering processes, returning data we will analyze
     """
     def __init__(self, job_code_text_corpus, relevant_states, relevance_threshold):
         """
@@ -35,6 +36,9 @@ class Model:
 
         self.data_to_analyze = self.run()
 
+    def get_output_loc(self):
+        return os.path.abspath(os.path.join(os.path.dirname(__file__), "../Outputs"))
+    
     def run(self):
         
         data_processor = DataProcessor(input_loc=os.path.abspath(os.path.join(os.path.dirname(__file__), "../Data")),

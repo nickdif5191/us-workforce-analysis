@@ -8,13 +8,13 @@ def run_model(model_inputs:dict):
         model_inputs (dict): dictionary of inputs specifying conditions of DataModel user wishes to run
 
     Returns:
-        data_to_analyze (pd.DataFrame): DF of data relevant to the specified industry, threshold, and states
+        light_industry_model (Model): Model object containing info & data relevant to the specified industry, threshold, & states
     """
     light_industry_data_model = Model(job_code_text_corpus=model_inputs["job_code_text_corpus"],
                                         relevant_states=model_inputs["relevant_states"],
                                         relevance_threshold=model_inputs["relevance_threshold"])
     
-    return light_industry_data_model.data_to_analyze
+    return light_industry_data_model
 
 
 light_industry_model_inputs = {
@@ -109,8 +109,8 @@ with us.
 
 if __name__ == "__main__":
     # model inputs that represent occupations and states relevant to Light Industry
-    light_industry_data_to_analyze = run_model(model_inputs=light_industry_model_inputs)
-    light_industry_data_to_analyze.to_csv("Outputs/light_industry.csv", index=False)
+    light_industry = run_model(model_inputs=light_industry_model_inputs)
+    light_industry.data_to_analyze.to_csv(f"{light_industry.get_output_loc()}/light_industry.csv", index=False)
 
 
 
