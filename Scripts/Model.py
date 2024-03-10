@@ -4,7 +4,7 @@ from DataProcessor import DataProcessor
 from JobCodeIdentifier import JobCodeIdentifier
 from DataFilterer import DataFilterer
 
-class DataModel:
+class Model:
     """
     Class designed to read, process, and filter occupational data to data specific to an industry
 
@@ -33,9 +33,9 @@ class DataModel:
         self.relevant_states = relevant_states
         self.relevance_threshold = relevance_threshold
 
-        self.data_to_analyze = self.run_data_model()
+        self.data_to_analyze = self.run()
 
-    def run_data_model(self):
+    def run(self):
         
         data_processor = DataProcessor(input_loc="Data",
                             input_filename_format="state_M{year}_dl.csv",

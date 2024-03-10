@@ -1,6 +1,6 @@
-from DataModel import DataModel
+from Scripts.Model import Model
 
-def run_data_model(model_inputs:dict):
+def run_model(model_inputs:dict):
     """
     Creates DataModel object given set of inputs and runs it
 
@@ -10,7 +10,7 @@ def run_data_model(model_inputs:dict):
     Returns:
         data_to_analyze (pd.DataFrame): DF of data relevant to the specified industry, threshold, and states
     """
-    light_industry_data_model = DataModel(job_code_text_corpus=model_inputs["job_code_text_corpus"],
+    light_industry_data_model = Model(job_code_text_corpus=model_inputs["job_code_text_corpus"],
                                         relevant_states=model_inputs["relevant_states"],
                                         relevance_threshold=model_inputs["relevance_threshold"])
     
@@ -109,7 +109,7 @@ with us.
 
 if __name__ == "__main__":
     # model inputs that represent occupations and states relevant to Light Industry
-    light_industry_data_to_analyze = run_data_model(model_inputs=light_industry_model_inputs)
+    light_industry_data_to_analyze = run_model(model_inputs=light_industry_model_inputs)
     light_industry_data_to_analyze.to_csv("Outputs/light_industry.csv", index=False)
 
 
