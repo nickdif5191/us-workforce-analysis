@@ -1,4 +1,4 @@
-from Scripts.Model import Model
+from Model import Model
 
 def run_model(model_inputs:dict):
     """
