@@ -39,8 +39,7 @@ class DataFilterer:
         except TypeError: # handle case where relevant_states is None - set all rows w/ a State to TRUE
             states_mask = data_all_years["STATE"].notna()
         relevant_data = data_all_years.loc[job_titles_mask & states_mask,:]
-        # relevant_row_mask = data_all_years["OCC_TITLE"].isin(relevant_job_titles) & data_all_years["STATE"].isin(self.relevant_states) 
-        # relevant_data = data_all_years.loc[relevant_row_mask,:]
+
         return relevant_data
     
     def standardize_occ_title_format(self, relevant_data:pd.DataFrame):

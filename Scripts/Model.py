@@ -40,7 +40,7 @@ class Model:
         data_processor = DataProcessor(input_loc="../Data",
                             input_filename_format="state_M{year}_dl.csv",
                             relevant_years=[2001,2022], 
-                            output_loc="Outputs")
+                            output_loc="../Outputs")
         
         job_code_identifier = JobCodeIdentifier(data_all_years=data_processor.data_all_years, 
                         job_code_text_corpus=self.job_code_text_corpus,

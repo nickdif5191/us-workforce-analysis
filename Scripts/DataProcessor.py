@@ -35,9 +35,9 @@ class DataProcessor:
         self.data_all_years = self.read_and_process_files(inputs_loc=input_loc,
                                                           filename_format=input_filename_format,
                                                           years=relevant_years,
-                                                          output_loc=output_loc)
+                                                          outputs_loc=output_loc)
 
-    def read_and_process_files(self, inputs_loc:str, filename_format:str, years:list, output_loc:str):
+    def read_and_process_files(self, inputs_loc:str, filename_format:str, years:list, outputs_loc:str):
         """
         Reads in datafiles from folder_loc, processes, and concatenates them
             
@@ -45,16 +45,17 @@ class DataProcessor:
             inputs_loc (str): filepath for folder where data is located
             filename_format (str): format of the filenames located in folder_loc
             years (list): two-item list representing range of years we want to analyze
-            output_loc (str): location to write data_all_years to
+            outputs_loc (str): location to write data_all_years to
 
         Returns:
             data_all_years (pd.DataFrame): DF including data from all years specified in years parameter
         """
+        # Convert input and output locations to absolute paths
+        absolute_inputs_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), inputs_loc))
+        absolute_outputs_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), outputs_loc))
+
         # empty DF - DFs from each year will be concatenated here
         data_all_years = pd.DataFrame()
-
-        # Convert inputs_loc to absolute path
-        absolute_inputs_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), inputs_loc))
 
         for i in range(years[0], years[1]+1):
             # read in file
@@ -76,6 +77,6 @@ class DataProcessor:
             # concat this iteration's DF to data_all_years
             data_all_years = pd.concat([data_all_years, df])
         
-        data_all_years.to_csv(f"{output_loc}/data_all_years.csv", index=False)
+        data_all_years.to_csv(f"{absolute_outputs_loc}/data_all_years.csv", index=False)
         
         return data_all_years
