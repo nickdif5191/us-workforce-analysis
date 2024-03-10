@@ -101,7 +101,8 @@ with us.
 """
 ,
 # state's Traba currently operates in
-"relevant_states" : None,
+"relevant_states" : ["Florida", "Texas", "Ohio", "Georgia", "Tennessee", "Michigan", "Indiana", "North Carolina",
+                     "South Carolina", "Arizona", "Nevada"], 
                                                 
 "relevance_threshold":0.55
     }

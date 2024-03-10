@@ -44,7 +44,7 @@ class DataModel:
         
         job_code_identifier = JobCodeIdentifier(data_all_years=data_processor.data_all_years, 
                         job_code_text_corpus=self.job_code_text_corpus,
-                        model_loc=f"{os.getcwd()}/Models/GoogleNews-vectors-negative300.bin",
+                        model_loc=f"{os.getcwd()}/Scripts/GoogleNews-vectors-negative300.bin",
                         relevance_threshold=self.relevance_threshold)
         
         data_filterer = DataFilterer(relevant_states=self.relevant_states)
