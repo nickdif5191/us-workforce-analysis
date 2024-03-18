@@ -6,8 +6,6 @@ The raw data, dating back to 2001 in its current format, included stats for over
 
 Rather than manually selecting relevant occupation titles, this model uses Natural Language Processing (NLP) methods to automatically identify jobs that are relevant to an industry, and returns all relevant data. Users simply input a text corpus that describes the industry and/or company they are interested in (along with an optional list of states they are interested in), and the model (using NLP methods from a previously-trained Word2Vec model) outputs a filtered dataset with employment and wage statistics from 2001-2022. 
 
-While there are many potential use cases, company HR/Recruiting departments may find the tool particularly useful. Inputting a specifically-crafted text corpus that describes the positions, requirements, and characteristics of ideal candidates would enable analysis of trends in labor pools they may be looking to pull from. Even more easily, departments could simply paste in the whole of text from their company's website or Wiki page, assuming this text is representative of company operations and job functions. 
-
 IMPORTANT FUNCTIONALITY NOTE: 
 The Word2Vec model used in this model is too large to be uploaded to GitHub. Users can download the model at https://www.kaggle.com/datasets/leadbest/googlenewsvectorsnegative300 (~3.6 GB) and move to 'Scripts' folder to be able to properly use the tool.
 
