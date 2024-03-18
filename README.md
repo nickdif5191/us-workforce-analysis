@@ -10,4 +10,4 @@ IMPORTANT FUNCTIONALITY NOTE:
 The Word2Vec model used in this model is too large to be uploaded to GitHub. Users can download the model at https://www.kaggle.com/datasets/leadbest/googlenewsvectorsnegative300 (~3.6 GB) and move to 'Scripts' folder to be able to properly use the tool.
 
 ANALYSIS WITH TABLEAU:
-The model as posted here is currently configured to perform analysis on the "Light Industrial Manufacturing" industry. An associated packaged Tableau workbook with results is posted. If you would like to run the model for your own industry and examine results in Tableau, use the "Results.twb" file and use the output specific to your industry.
+The model as posted here is currently configured to perform analysis on the "Light Industrial Manufacturing" industry. An associated packaged Tableau workbook with results is posted. If you would like to run the model for your own industry and examine results in Tableau, use the "Results.twb" file along with a generated output specific to your industry.
